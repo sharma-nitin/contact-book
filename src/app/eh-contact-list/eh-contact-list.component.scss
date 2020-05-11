@@ -1,0 +1,158 @@
+.contact-cards {
+  max-width: 1200px;
+  margin: 10px auto;
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.list-header {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+}
+$box_width : 250px;
+$box_height : 300px;
+$box_bRadius : 10px;
+$box_background :aquamarine;
+$box_shadow : 0px 0px 10px rgba(0,0,0,0.2);
+$text_color: black;
+$links_color: #626262;
+$bottom_box_bg : #F5F5F5;
+
+@mixin createBox($width, $height, $radius, $background, $shadow) {
+  width: $width;
+  height: $height;
+  border-radius: $radius;
+  background-color: $background;
+  box-shadow: $shadow;
+}
+
+body{
+  background-color: #E6E6E6;
+  font-family: Roboto, sans-serif;
+}
+
+.container{
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .box{
+    position: relative;
+    @include createBox($box_width, $box_height, $box_bRadius, $box_background, $box_shadow);
+    .top{
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 50%;
+      border-top-left-radius: $box_bRadius;
+      border-top-right-radius: $box_bRadius;
+      #edit{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 30px;
+        left: 75%;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        transition: .5s;
+        text-decoration: none;
+        z-index: 3;
+      }
+
+      #delete{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 30px;
+        right: 0;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        transition: .5s;
+        text-decoration: none;
+        z-index: 3;
+      }
+
+      .profile, .name, .phone{
+        margin: 5px;
+      }
+
+      .profile{
+        width: 60px;
+        height: 60px;
+        border: 1px solid white;
+        box-shadow: 0px 3px 5px rgba(0,0,0,0.2);
+        border-radius: 50%;
+        background-image: url('../../assets/User.png');
+        z-index: 2;
+      }
+
+      .name{
+        font-size: 18px;
+        font-weight: 700;
+      }
+
+      .phone {
+        font-size: 14px;
+        font-weight: 400;
+      }
+    }
+    .bottom{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-content: center;
+      height: 50%;
+      background-color: $bottom_box_bg;
+      border-bottom-left-radius: $box_bRadius;
+      border-bottom-right-radius: $box_bRadius;
+    }
+  }
+}
+
+.bottom-heading{
+    margin: 0;
+    color: black;
+    font-weight: bold;
+    padding: 5px;
+    text-align: center;
+    text-decoration: underline;
+}
+
+.bottom-content{
+    margin: 0;
+    padding: 10px;
+    text-align: center;
+}
+
+.button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius: 30px;
+}
+
+.add-contact {
+  background-color: white;
+  color: black;
+  border: 2px solid #335C7D;
+}
+
+.add-contact:hover {
+  background-color: #335C7D;
+  color: white;
+}
