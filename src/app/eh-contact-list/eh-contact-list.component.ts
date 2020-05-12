@@ -17,7 +17,7 @@ export class EhContactListComponent implements OnInit {
     this.contacts = this.contactService.getContacts();
   }
 
-  navigate(status,index) {
+  navigate(status,index?) {
     if (status === 'add') {
       this.router.navigate(['add-contact']);
     } else
