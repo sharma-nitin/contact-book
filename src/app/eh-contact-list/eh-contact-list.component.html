@@ -21,7 +21,8 @@
         <div class="bottom">
           <div>
             <p class="bottom-heading">Email </p>
-            <p class="bottom-content">{{contact.email}}</p>
+            <p *ngIf="contact?.email" class="bottom-content">{{contact.email}}</p>
+            <p *ngIf="!contact?.email" class="bottom-content">N/A</p>
           </div>
           <div>
             <p class="bottom-heading">Status </p>
