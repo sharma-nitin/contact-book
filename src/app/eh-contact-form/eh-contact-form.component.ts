@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ContactService } from '../eh-services/contact.service';
 import { iContact } from '../eh-interface/contact.interface';
-
+import { Contact } from '../../app/eh-model/contact'
 @Component({
   selector: 'eh-contact-form',
   templateUrl: './eh-contact-form.component.html',
@@ -13,12 +13,13 @@ export class EhContactFormComponent implements OnInit {
   firstName = '';
   lastName = '';
   email = '';
-  phoneno: number;
+  phoneno: string;
   UserStatus = ['Active', 'InActive'];
   status = this.UserStatus[0];
   contacts: iContact[];
   activeRoute: string;
   updatedStatus = '';
+  contactModel = new Contact('', '', '', '', 'Active');
 
   constructor(private router: Router,
     private contactService: ContactService,
@@ -36,11 +37,12 @@ export class EhContactFormComponent implements OnInit {
       if (this.router.url === '/edit-contact') {
         this.activeRoute = 'edit';
         const editContact = this.contacts[this.contactService.getIndexToBeEdited()];
-        this.firstName = editContact.firstName;
-        this.lastName = editContact.lastName;
-        this.email = editContact.email;
-        this.phoneno = editContact.phoneno;
-        this.status = editContact.status;
+        this.contactModel = new Contact(
+          editContact.firstName,
+          editContact.lastName,
+          editContact.email,
+          editContact.phoneno,
+          editContact.status);
       }
   }
 
@@ -48,39 +50,35 @@ export class EhContactFormComponent implements OnInit {
     this.router.navigate(['contact-list']);
   }
 
-  onStatusChange(updatedstatus) {
-    this.status = updatedstatus;
-  }
-
   updateContact() {
     const contact = {
-      firstName: this.firstName,
-      lastName: this.lastName,
-      email: this.email,
-      phoneno: this.phoneno,
-      status: this.status
+      firstName: this.contactModel.firstName,
+      lastName: this.contactModel.lastName,
+      email: this.contactModel.email,
+      phoneno: this.contactModel.phoneno,
+      status: this.contactModel.status
     };
     this.contacts[this.contactService.getIndexToBeEdited()] = contact;
     this.contactService.update(this.contacts);
     this.updatedStatus = 'updated';
     setTimeout(() => {
       this.router.navigate(['contact-list']);
-    }, 2000);
+    }, 1000);
   }
 
   addContact() {
     const contact = {
-      firstName: this.firstName,
-      lastName: this.lastName,
-      email: this.email,
-      phoneno: this.phoneno,
-      status: this.status
+      firstName: this.contactModel.firstName,
+      lastName: this.contactModel.lastName,
+      email: this.contactModel.email,
+      phoneno: this.contactModel.phoneno,
+      status: this.contactModel.status
     };
     const updatedContacts = [...this.contacts, ...[contact]];
     this.contactService.update(updatedContacts);
     this.updatedStatus = 'added';
     setTimeout(() => {
       this.router.navigate(['contact-list']);
-    }, 2000);
+    }, 1000);
   }
 }
