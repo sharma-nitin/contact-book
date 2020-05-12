@@ -1,4 +1,4 @@
-This website is hosted at below url -
+This website is hosted at url -
 https://sinister10.github.io/contact-book/
 
 # EhContact

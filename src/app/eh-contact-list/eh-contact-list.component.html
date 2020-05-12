@@ -1,6 +1,6 @@
 <div class="list-header">
   <div></div>
-  <button class="button add-contact"><a><i class="fas fa-plus"></i> Add Contact</a></button>
+  <button class="button add-contact" (click)="navigate()"><a><i class="fas fa-plus"></i> Add Contact</a></button>
 </div>
 
 <div class="contact-cards">
@@ -8,8 +8,8 @@
     <div class="container">
       <div class="box">
         <div class="top">
-          <a href="#" id="edit"><i class='fas fa-pen'></i></a>
-          <a href="#" id="delete"><i class="fas fa-trash-alt"></i></a>
+          <a id="edit" (click)="navigate()"><i class='fas fa-pen'></i></a>
+          <a id="delete" ><i class="fas fa-trash-alt"></i></a>
           <div class="profile"></div>
           <h1 class="name">{{contact.firstName}} {{contact.lastName}}</h1>
           <h3 class="phone">{{contact.phoneno}}</h3>
@@ -28,3 +28,4 @@
     </div>
   </div>
 </div>
+
