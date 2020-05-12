@@ -9,7 +9,7 @@
       <div class="box">
         <div class="top">
           <a id="edit" (click)="navigate('edit',index)"><i class='fas fa-pen c-pointer'></i></a>
-          <a id="delete" (click)="deleteContact(index)"><i class="fas fa-trash-alt c-pointer"></i></a>
+          <a id="delete" (click)="deleteModal(index,contact,template)"><i class="fas fa-trash-alt c-pointer"></i></a>
           <div class="profile"></div>
           <h1 class="name">{{contact.firstName}} {{contact.lastName}}</h1>
           <h3 class="phone">{{contact.phoneno}}</h3>
@@ -29,3 +29,15 @@
   </div>
 </div>
 
+<ng-template #template>
+
+  <div class="modal-body">
+    <p>Are you sure you want to delete contact of {{contacttoDelete.firstName}}  {{contacttoDelete.lastName}}
+      and all its details.
+    </p>
+    <div class="modal-buttons">
+      <button class="modal-btn" (click)="modalRef.hide()">  Cancel  </button>
+      <button class="modal-btn" (click)="delete()"> Ok   </button>
+    </div>
+  </div>
+</ng-template>
