@@ -1,4 +1,21 @@
 <div class="list-header">
-  <button class="button back-button" (click)="navigate()"><a><i class="fas fa-arrow-alt-circle-left"></i> Back to Home</a></button>
+  <button class="button back-button c-pointer" (click)="navigate()"><a><i class="fas fa-arrow-alt-circle-left"></i> Back to Home</a></button>
   <div></div>
+</div>
+
+<div class="contact-form">
+  <h1 class="contact-form-title" *ngIf="activeRoute=='add'">Add Contact</h1>
+  <h1 class="contact-form-title" *ngIf="activeRoute=='edit'">Edit Contact</h1>
+  <input type="text" [(ngModel)]="firstName" class="contact-form-input" placeholder="First Name" autofocus>
+  <input type="text" [(ngModel)]="lastName" class="contact-form-input" placeholder="Last Name">
+  <input type="text" [(ngModel)]="email" class="contact-form-input" placeholder="Email">
+  <input type="text" [(ngModel)]="phoneno" class="contact-form-input" placeholder="Contact no.">
+  <select class="contact-form-status" [(ngModel)]="status" (ngModelChange)="onStatusChange($event)">
+    <option [value]="status" *ngFor="let status of UserStatus">{{status}}</option>
+  </select>
+  <Button type="submit"  class="contact-form-button c-pointer" *ngIf="activeRoute=='add'" (click)="addContact()">Add</Button>
+  <Button type="submit"  class="contact-form-button c-pointer" *ngIf="activeRoute=='edit'" (click)="updateContact()">Update</Button>
+  <span class="contact-updated" *ngIf="updatedStatus==='added'"> Contact Added Successfully !</span>
+  <span class="contact-updated" *ngIf="updatedStatus==='updated'"> Contact Updated Successfully !</span>
+
 </div>

@@ -6,7 +6,8 @@ import { EhContactFormComponent } from './eh-contact-form/eh-contact-form.compon
 const routes: Routes = [
   { path: '', redirectTo: '/contact-list', pathMatch: 'full' },
   { path: 'contact-list', component: EhContactListComponent },
-  { path: 'contact-form', component: EhContactFormComponent },
+  { path: 'add-contact', component: EhContactFormComponent },
+  { path: 'edit-contact', component: EhContactFormComponent }
 ];
 
 @NgModule({

@@ -5,16 +5,17 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EhContactListComponent } from './eh-contact-list/eh-contact-list.component';
 import { EhContactFormComponent } from './eh-contact-form/eh-contact-form.component';
-
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
     EhContactListComponent,
-    EhContactFormComponent
+    EhContactFormComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
