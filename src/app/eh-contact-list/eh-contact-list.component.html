@@ -1,14 +1,20 @@
+<!-- START: Add Contact Button -->
 <div class="list-header">
   <div></div>
-  <button class="button add-contact c-pointer" (click)="navigate('add')"><a><i class="fas fa-plus"></i> Add Contact</a></button>
+  <button class="button add-contact c-pointer" (click)="navigate('add')"><a><i class="fas fa-plus"></i> Add
+      Contact</a></button>
 </div>
+<!-- END: Add Contact Button -->
 
+<!-- START: No Contact Message  -->
 <div *ngIf="contacts.length==0" class="container-fluid">
-     <p class="message">Address Book is empty. Click on create contact to add a contact to the List</p>
+  <p class="message">Address Book is empty. Click on create contact to add a contact to the List</p>
 </div>
+<!-- END: No Contact Message  -->
 
+<!-- START: Contact List  -->
 <div class="contact-cards">
-  <div  *ngFor="let contact of contacts; let index = index" class="card">
+  <div *ngFor="let contact of contacts; let index = index" class="card">
     <div class="container">
       <div class="box">
         <div class="top">
@@ -33,15 +39,18 @@
     </div>
   </div>
 </div>
+<!-- END: Contact List  -->
 
+<!-- START: Modal for deletion popup -->
 <ng-template #template>
   <div class="modal-body">
-    <p>Are you sure you want to delete contact of {{contacttoDelete.firstName}}  {{contacttoDelete.lastName}}
+    <p>Are you sure you want to delete contact of {{contacttoDelete.firstName}} {{contacttoDelete.lastName}}
       and all its details.
     </p>
     <div class="modal-buttons">
-      <button class="modal-btn" (click)="modalRef.hide()">  Cancel  </button>
+      <button class="modal-btn" (click)="modalRef.hide()"> Cancel </button>
       <button class="modal-btn" (click)="delete()"> Ok </button>
     </div>
   </div>
 </ng-template>
+<!-- END: Modal for deletion popup -->

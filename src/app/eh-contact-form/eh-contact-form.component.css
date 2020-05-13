@@ -1,4 +1,3 @@
-
 .list-header {
   display: flex;
   justify-content: space-between;
@@ -6,7 +5,7 @@
 }
 
 .button {
-  background-color: #4CAF50;
+  background-color: #4caf50;
   border: none;
   color: white;
   padding: 16px 32px;
@@ -21,14 +20,13 @@
 .back-button {
   background-color: white;
   color: black;
-  border: 2px solid #335C7D;
+  border: 2px solid #335c7d;
 }
 
 .back-button:hover {
-  background-color: #335C7D;
+  background-color: #335c7d;
   color: white;
 }
-
 
 .contact-form {
   position: relative;
@@ -41,8 +39,9 @@
   -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
 }
-.contact-form:before, .contact-form:after {
-  content: '';
+.contact-form:before,
+.contact-form:after {
+  content: "";
   position: absolute;
   bottom: 1px;
   left: 0;
@@ -70,7 +69,7 @@
 }
 
 .contact-form-title:before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -78,10 +77,82 @@
   height: 8px;
   background: #c4e17f;
   border-radius: 5px 5px 0 0;
-  background-image: -webkit-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
-  background-image: -moz-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
-  background-image: -o-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
-  background-image: linear-gradient(to right, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+  background-image: -webkit-linear-gradient(
+    left,
+    #c4e17f,
+    #c4e17f 12.5%,
+    #f7fdca 12.5%,
+    #f7fdca 25%,
+    #fecf71 25%,
+    #fecf71 37.5%,
+    #f0776c 37.5%,
+    #f0776c 50%,
+    #db9dbe 50%,
+    #db9dbe 62.5%,
+    #c49cde 62.5%,
+    #c49cde 75%,
+    #669ae1 75%,
+    #669ae1 87.5%,
+    #62c2e4 87.5%,
+    #62c2e4
+  );
+  background-image: -moz-linear-gradient(
+    left,
+    #c4e17f,
+    #c4e17f 12.5%,
+    #f7fdca 12.5%,
+    #f7fdca 25%,
+    #fecf71 25%,
+    #fecf71 37.5%,
+    #f0776c 37.5%,
+    #f0776c 50%,
+    #db9dbe 50%,
+    #db9dbe 62.5%,
+    #c49cde 62.5%,
+    #c49cde 75%,
+    #669ae1 75%,
+    #669ae1 87.5%,
+    #62c2e4 87.5%,
+    #62c2e4
+  );
+  background-image: -o-linear-gradient(
+    left,
+    #c4e17f,
+    #c4e17f 12.5%,
+    #f7fdca 12.5%,
+    #f7fdca 25%,
+    #fecf71 25%,
+    #fecf71 37.5%,
+    #f0776c 37.5%,
+    #f0776c 50%,
+    #db9dbe 50%,
+    #db9dbe 62.5%,
+    #c49cde 62.5%,
+    #c49cde 75%,
+    #669ae1 75%,
+    #669ae1 87.5%,
+    #62c2e4 87.5%,
+    #62c2e4
+  );
+  background-image: linear-gradient(
+    to right,
+    #c4e17f,
+    #c4e17f 12.5%,
+    #f7fdca 12.5%,
+    #f7fdca 25%,
+    #fecf71 25%,
+    #fecf71 37.5%,
+    #f0776c 37.5%,
+    #f0776c 50%,
+    #db9dbe 50%,
+    #db9dbe 62.5%,
+    #c49cde 62.5%,
+    #c49cde 75%,
+    #669ae1 75%,
+    #669ae1 87.5%,
+    #62c2e4 87.5%,
+    #62c2e4
+  );
 }
 
 input {
@@ -92,8 +163,7 @@ input {
   box-sizing: border-box;
 }
 
-
-.contact-form-status{
+.contact-form-status {
   width: -webkit-fill-available;
   height: 35px;
   margin-bottom: 20px;
@@ -150,18 +220,18 @@ input {
   padding: 0;
 }
 
-.contact-updated{
+.contact-updated {
   margin: 10px;
   line-height: 2;
   color: green;
   background: greenyellow;
- }
+}
 
- .c-pointer{
+.c-pointer {
   cursor: pointer;
 }
 
-.disable{
- pointer-events: none;
- opacity: 0.4;
+.disable {
+  pointer-events: none;
+  opacity: 0.4;
 }

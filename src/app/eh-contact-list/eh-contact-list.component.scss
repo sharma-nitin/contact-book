@@ -11,14 +11,14 @@
   justify-content: space-between;
   margin: 20px;
 }
-$box_width : 250px;
-$box_height : 300px;
-$box_bRadius : 10px;
-$box_background :aquamarine;
-$box_shadow : 0px 0px 10px rgba(0,0,0,0.2);
+$box_width: 250px;
+$box_height: 300px;
+$box_bRadius: 10px;
+$box_background: aquamarine;
+$box_shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 $text_color: black;
 $links_color: #626262;
-$bottom_box_bg : #F5F5F5;
+$bottom_box_bg: #f5f5f5;
 
 @mixin createBox($width, $height, $radius, $background, $shadow) {
   width: $width;
@@ -28,21 +28,27 @@ $bottom_box_bg : #F5F5F5;
   box-shadow: $shadow;
 }
 
-body{
-  background-color: #E6E6E6;
+body {
+  background-color: #e6e6e6;
   font-family: Roboto, sans-serif;
 }
 
-.container{
+.container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   justify-content: center;
   align-items: center;
-  .box{
+  .box {
     position: relative;
-    @include createBox($box_width, $box_height, $box_bRadius, $box_background, $box_shadow);
-    .top{
+    @include createBox(
+      $box_width,
+      $box_height,
+      $box_bRadius,
+      $box_background,
+      $box_shadow
+    );
+    .top {
       position: relative;
       display: flex;
       flex-direction: column;
@@ -51,7 +57,7 @@ body{
       height: 50%;
       border-top-left-radius: $box_bRadius;
       border-top-right-radius: $box_bRadius;
-      #edit{
+      #edit {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -61,12 +67,12 @@ body{
         width: 40px;
         height: 40px;
         border-radius: 50%;
-        transition: .5s;
+        transition: 0.5s;
         text-decoration: none;
         z-index: 3;
       }
 
-      #delete{
+      #delete {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -76,26 +82,28 @@ body{
         width: 40px;
         height: 40px;
         border-radius: 50%;
-        transition: .5s;
+        transition: 0.5s;
         text-decoration: none;
         z-index: 3;
       }
 
-      .profile, .name, .phone{
+      .profile,
+      .name,
+      .phone {
         margin: 5px;
       }
 
-      .profile{
+      .profile {
         width: 60px;
         height: 60px;
         border: 1px solid white;
-        box-shadow: 0px 3px 5px rgba(0,0,0,0.2);
+        box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
         border-radius: 50%;
-        background-image: url('../../assets/User.png');
+        background-image: url("../../assets/User.png");
         z-index: 2;
       }
 
-      .name{
+      .name {
         font-size: 18px;
         font-weight: 700;
       }
@@ -105,7 +113,7 @@ body{
         font-weight: 400;
       }
     }
-    .bottom{
+    .bottom {
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -118,23 +126,23 @@ body{
   }
 }
 
-.bottom-heading{
-    margin: 0;
-    color: black;
-    font-weight: bold;
-    padding: 5px;
-    text-align: center;
-    text-decoration: underline;
+.bottom-heading {
+  margin: 0;
+  color: black;
+  font-weight: bold;
+  padding: 5px;
+  text-align: center;
+  text-decoration: underline;
 }
 
-.bottom-content{
-    margin: 0;
-    padding: 10px;
-    text-align: center;
+.bottom-content {
+  margin: 0;
+  padding: 10px;
+  text-align: center;
 }
 
 .button {
-  background-color: #4CAF50;
+  background-color: #4caf50;
   border: none;
   color: white;
   padding: 16px 32px;
@@ -149,44 +157,44 @@ body{
 .add-contact {
   background-color: white;
   color: black;
-  border: 2px solid #335C7D;
+  border: 2px solid #335c7d;
 }
 
 .add-contact:hover {
-  background-color: #335C7D;
+  background-color: #335c7d;
   color: white;
 }
 
-.c-pointer{
+.c-pointer {
   cursor: pointer;
 }
 
-.modal-body{
-     position: relative;
-    background: aliceblue;
-    flex: 1 1 auto;
-    border: 1px solid deepskyblue;
-    padding: 1rem;
+.modal-body {
+  position: relative;
+  background: aliceblue;
+  flex: 1 1 auto;
+  border: 1px solid deepskyblue;
+  padding: 1rem;
 }
 
-.modal-buttons{
+.modal-buttons {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
 }
 
-.modal-btn{
+.modal-btn {
   margin: 5px;
   background: cadetblue;
   border: 1px solid;
   font-style: italic;
 }
 
-.message{
+.message {
   line-height: 10px;
   padding: 10px;
   text-align: center;
   background: azure;
   color: black;
-  font-style: italic
+  font-style: italic;
 }

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ContactService } from '../eh-services/contact.service';
 import { iContact } from '../eh-interface/contact.interface';
-import { Contact } from '../../app/eh-model/contact'
+import { Contact } from '../../app/eh-model/contact';
 @Component({
   selector: 'eh-contact-form',
   templateUrl: './eh-contact-form.component.html',
@@ -22,14 +22,22 @@ export class EhContactFormComponent implements OnInit {
   contactModel = new Contact('', '', '', '', 'Active');
 
   constructor(private router: Router,
-    private contactService: ContactService,
+              private contactService: ContactService,
   ) { }
 
+  /**
+   * on init call to fetch contacts from api
+   */
   ngOnInit() {
     this.contacts = this.contactService.getContacts();
     this.routeBasedAction();
   }
 
+  /**
+   * Display form conditionally based on route
+   * if '/add-contact' then empty form
+   * '/edit-contact' then form will be prepopulated with contact details
+   */
   routeBasedAction() {
     if (this.router.url === '/add-contact') {
       this.activeRoute = 'add';
@@ -46,10 +54,18 @@ export class EhContactFormComponent implements OnInit {
       }
   }
 
+  /**
+   * Navigates to eh-contact-list component
+   * when clicked on Back to Home Button
+   */
   navigate() {
     this.router.navigate(['contact-list']);
   }
 
+  /**
+   * Updates eisting contact
+   * Navigates to Contact List once updated
+   */
   updateContact() {
     const contact = {
       firstName: this.contactModel.firstName,
@@ -66,6 +82,10 @@ export class EhContactFormComponent implements OnInit {
     }, 1000);
   }
 
+  /**
+   * Adds contact when a New contact is added
+   * Navigate to Contact List once added
+   */
   addContact() {
     const contact = {
       firstName: this.contactModel.firstName,

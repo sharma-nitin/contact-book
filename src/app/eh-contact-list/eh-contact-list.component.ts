@@ -15,13 +15,21 @@ export class EhContactListComponent implements OnInit {
   contacttoDelete: iContact;
   indexToDelete: number;
   constructor(private router: Router,
-    private contactService: ContactService,
-    private modalService: BsModalService) { }
+              private contactService: ContactService,
+              private modalService: BsModalService) { }
 
+  /**
+   * on init call to fetch contacts from api
+   */
   ngOnInit() {
     this.contacts = this.contactService.getContacts();
   }
 
+  /**
+   * Navigates eh-contact-form component
+   * @param status - add/edit
+   * @param [index] - index of contact
+   */
   navigate(status, index?) {
     if (status === 'add') {
       this.router.navigate(['add-contact']);
@@ -32,13 +40,21 @@ export class EhContactListComponent implements OnInit {
       }
   }
 
-  deleteModal(index,contact,template,) {
+  /**
+   * Delete modal popup to confirm deletion
+   * @param index - index of contact
+   * @param contact - contact to delete
+   * @param template - templeteref of modal
+   */
+  deleteModal(index, contact, template, ) {
     this.indexToDelete = index;
     this.contacttoDelete = contact;
     this.modalRef = this.modalService.show(template);
-
   }
 
+  /**
+   * Delete a contact and update the list
+   */
   delete() {
     this.contacts.splice(this.indexToDelete, 1);
     this.contactService.deleteContact(this.contacts);

@@ -5,7 +5,11 @@ import { Injectable } from '@angular/core';
 })
 export class ContactService {
   contactIndex: number;
-   contacts = [{
+
+  /**
+   * Contacts mock data can be later fetched from api
+   */
+  contacts = [{
     firstName: 'Nitin',
     lastName: 'Sharma',
     email: 'sharmanitin1492@gmail.com',
@@ -45,23 +49,43 @@ export class ContactService {
 
   constructor() { }
 
+  /**
+   * Gets contacts
+   * @returns contacts
+   */
   getContacts() {
     return this.contacts;
   }
 
+  /**
+   * Sets index to be edited
+   * @param index -index to be edited
+   */
   setIndexToBeEdited(index) {
     this.contactIndex = index;
   }
 
+  /**
+   * Gets index to be edited
+   * @returns index to be edited
+   */
   getIndexToBeEdited() {
     return this.contactIndex;
   }
 
-  deleteContact(updatedContacts){
+  /**
+   * Deletes contact and pdate contacts
+   * @param updatedContacts - list of updated contacts
+   */
+  deleteContact(updatedContacts) {
     this.contacts = [...updatedContacts];
   }
 
-  update(updatedContacts){
-     this.contacts = [...updatedContacts];
-   }
+  /**
+   * Updates contacts with newly added/updated
+   * @param updatedContacts - list of updated contacts
+   */
+  update(updatedContacts) {
+    this.contacts = [...updatedContacts];
+  }
 }
