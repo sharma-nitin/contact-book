@@ -3,5 +3,7 @@ export interface iContact {
   lastName: string ,
   email: string ,
   phoneno: string ,
-  status: string ,
+  country: string ,
+  state: string ,
+  id?:string,
 }

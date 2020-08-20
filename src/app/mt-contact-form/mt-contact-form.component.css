@@ -163,10 +163,9 @@ input {
   box-sizing: border-box;
 }
 
-.contact-form-status {
+.contact-form-address {
   width: -webkit-fill-available;
   height: 35px;
-  margin-bottom: 20px;
 }
 
 .contact-form-button {
@@ -235,3 +234,5 @@ input {
   pointer-events: none;
   opacity: 0.4;
 }
+
+

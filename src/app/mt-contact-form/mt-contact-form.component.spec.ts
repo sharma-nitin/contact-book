@@ -1,28 +1,28 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EhContactFormComponent } from './eh-contact-form.component';
+import { mtContactFormComponent } from './mt-contact-form.component';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
-import { EhContactListComponent } from '../eh-contact-list/eh-contact-list.component';
-describe('EhContactFormComponent', () => {
-  let component: EhContactFormComponent;
-  let fixture: ComponentFixture<EhContactFormComponent>;
+import { mtContactListComponent } from '../mt-contact-list/mt-contact-list.component';
+describe('mtContactFormComponent', () => {
+  let component: mtContactFormComponent;
+  let fixture: ComponentFixture<mtContactFormComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [EhContactFormComponent,EhContactListComponent],
+      declarations: [mtContactFormComponent,mtContactListComponent],
       imports: [FormsModule,
         RouterTestingModule.withRoutes(
-          [  { path: 'contact-list', component: EhContactListComponent },
-          { path: 'edit-contact', component: EhContactFormComponent }
+          [  { path: 'contact-list', component: mtContactListComponent },
+          { path: 'edit-contact', component: mtContactFormComponent }
         ])]
     })
       .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(EhContactFormComponent);
+    fixture = TestBed.createComponent(mtContactFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

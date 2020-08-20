@@ -1,16 +1,16 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EhContactListComponent } from './eh-contact-list.component';
+import { mtContactListComponent } from './mt-contact-list.component';
 import { RouterModule } from '@angular/router';
 import { BsModalService, BsModalRef, ModalModule } from 'ngx-bootstrap/modal';
 
-describe('EhContactListComponent', () => {
-  let component: EhContactListComponent;
-  let fixture: ComponentFixture<EhContactListComponent>;
+describe('mtContactListComponent', () => {
+  let component: mtContactListComponent;
+  let fixture: ComponentFixture<mtContactListComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [EhContactListComponent],
+      declarations: [mtContactListComponent],
       imports: [RouterModule.forRoot([]), ModalModule.forRoot()],
       providers: [BsModalService,
         BsModalRef,]
@@ -19,7 +19,7 @@ describe('EhContactListComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(EhContactListComponent);
+    fixture = TestBed.createComponent(mtContactListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

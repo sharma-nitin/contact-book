@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { EhContactListComponent } from './eh-contact-list/eh-contact-list.component';
-import { EhContactFormComponent } from './eh-contact-form/eh-contact-form.component';
+import { mtContactListComponent } from './mt-contact-list/mt-contact-list.component';
+import { mtContactFormComponent } from './mt-contact-form/mt-contact-form.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/contact-list', pathMatch: 'full' },
-  { path: 'contact-list', component: EhContactListComponent },
-  { path: 'add-contact', component: EhContactFormComponent },
-  { path: 'edit-contact', component: EhContactFormComponent }
+  { path: 'contact-list', component: mtContactListComponent },
+  { path: 'add-contact', component: mtContactFormComponent },
+  { path: 'edit-contact', component: mtContactFormComponent }
 ];
 
 @NgModule({

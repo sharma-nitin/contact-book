@@ -1,26 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ContactService } from '../eh-services/contact.service';
-import { iContact } from '../eh-interface/contact.interface';
-import { Contact } from '../../app/eh-model/contact';
+import { ContactService } from '../mt-services/contact.service';
+import { iContact } from '../mt-interface/contact.interface';
+import { Contact } from '../../app/mt-model/contact';
 @Component({
-  selector: 'eh-contact-form',
-  templateUrl: './eh-contact-form.component.html',
-  styleUrls: ['./eh-contact-form.component.css']
+  selector: 'mt-contact-form',
+  templateUrl: './mt-contact-form.component.html',
+  styleUrls: ['./mt-contact-form.component.css']
 })
 
-export class EhContactFormComponent implements OnInit {
-  firstName = '';
-  lastName = '';
-  email = '';
-  phoneno: string;
-  UserStatus = ['Active', 'InActive'];
-  status = this.UserStatus[0];
+export class mtContactFormComponent implements OnInit {
   contacts: iContact[];
   activeRoute: string;
-  updatedStatus = '';
-  contactModel = new Contact('', '', '', '', 'Active');
-
+  contactModel = new Contact('', '', '', '', 'India', '');
+  countryData: any;
+  countries = [];
+  states = [];
+  updated = '';
   constructor(private router: Router,
               private contactService: ContactService,
   ) { }
@@ -30,7 +26,16 @@ export class EhContactFormComponent implements OnInit {
    */
   ngOnInit() {
     this.contacts = this.contactService.getContacts();
+    this.contactService.getCountries().subscribe((res: any) => {
+      this.countryData = res;
+      this.countries = Object.keys(res) ;
+      this.states = this.countryData['India'];
+    });
     this.routeBasedAction();
+  }
+
+  onCountrySelect(country){
+    this.states = this.countryData[country];
   }
 
   /**
@@ -44,18 +49,22 @@ export class EhContactFormComponent implements OnInit {
     } else
       if (this.router.url === '/edit-contact') {
         this.activeRoute = 'edit';
-        const editContact = this.contacts[this.contactService.getIndexToBeEdited()];
+        const id = this.contactService.getIdToBeEdited();
+        const editContact = this.contacts.filter((contact)=>{
+          return contact.id === id;
+        });
         this.contactModel = new Contact(
-          editContact.firstName,
-          editContact.lastName,
-          editContact.email,
-          editContact.phoneno,
-          editContact.status);
+          editContact[0].firstName,
+          editContact[0].lastName,
+          editContact[0].email,
+          editContact[0].phoneno,
+          editContact[0].country,
+          editContact[0].state);
       }
   }
 
   /**
-   * Navigates to eh-contact-list component
+   * Navigates to mt-contact-list component
    * when clicked on Back to Home Button
    */
   navigate() {
@@ -68,15 +77,18 @@ export class EhContactFormComponent implements OnInit {
    */
   updateContact() {
     const contact = {
+      id:this.contactModel.phoneno,
       firstName: this.contactModel.firstName,
       lastName: this.contactModel.lastName,
       email: this.contactModel.email,
       phoneno: this.contactModel.phoneno,
-      status: this.contactModel.status
+      country: this.contactModel.country,
+      state: this.contactModel.state
     };
-    this.contacts[this.contactService.getIndexToBeEdited()] = contact;
+    const index = this.contacts.findIndex((el) => el.id === this.contactModel.id);
+    this.contacts[index] = contact;
     this.contactService.update(this.contacts);
-    this.updatedStatus = 'updated';
+    this.updated = 'updated';
     setTimeout(() => {
       this.router.navigate(['contact-list']);
     }, 1000);
@@ -88,15 +100,17 @@ export class EhContactFormComponent implements OnInit {
    */
   addContact() {
     const contact = {
+      id: this.contactService.getContacts().length + 1,
       firstName: this.contactModel.firstName,
       lastName: this.contactModel.lastName,
       email: this.contactModel.email,
       phoneno: this.contactModel.phoneno,
-      status: this.contactModel.status
+      country: this.contactModel.country,
+      state: this.contactModel.state
     };
     const updatedContacts = [...this.contacts, ...[contact]];
     this.contactService.update(updatedContacts);
-    this.updatedStatus = 'added';
+    this.updated = 'added';
     setTimeout(() => {
       this.router.navigate(['contact-list']);
     }, 1000);

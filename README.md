@@ -1,7 +1,6 @@
-# Demo -
-https://sinister10.github.io/contact-book/contact-list
 
-# EhContact
+
+# MyTeam11Contact
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.0.
 
